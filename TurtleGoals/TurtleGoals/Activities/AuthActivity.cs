@@ -33,6 +33,9 @@ namespace TurtleGoals.Activities
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.auth_layout);
 
+            // Initialize Firebase before any Firebase service is accessed
+            Firebase.FirebaseApp.InitializeApp(this);
+
             // Initialize Firebase Auth
             firebaseAuth = FirebaseAuth.Instance;
 
