@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "434402015877",
+    "project_id": "turtlegoal-a02f4",
+    "storage_bucket": "turtlegoal-a02f4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434402015877:android:bff8980207efcee24fc7ec",
+        "android_client_info": {
+          "package_name": "com.companyname.turtlegoal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwbIzesJQ8hDzfREZGvtuPOI93iRZnLcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
