@@ -112,6 +112,10 @@ namespace TurtleGoals.Activities
                         NavigateToMain();
                     }
                 }
+                catch (FirebaseAuthWeakPasswordException)
+                {
+                    layoutPassword.Error = "Password must be at least 6 characters";
+                }
                 catch (FirebaseAuthInvalidCredentialsException)
                 {
                     layoutEmail.Error = "Invalid email or password";
@@ -119,10 +123,6 @@ namespace TurtleGoals.Activities
                 catch (FirebaseAuthUserCollisionException)
                 {
                     layoutEmail.Error = "An account with this email already exists";
-                }
-                catch (FirebaseAuthWeakPasswordException)
-                {
-                    layoutPassword.Error = "Password must be at least 6 characters";
                 }
                 catch (Exception ex)
                 {
