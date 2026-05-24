@@ -1,10 +1,10 @@
-\# 🐢 TurtleGoal - Tortoise Steps
+\# 🐢 TurtleGoals - Tortoise Steps
 
 > "Slow and steady wins the race!" 🏁
 
 
 
-\*\*TurtleGoal\*\* is a smart, gamified, and social mobile platform designed to help users achieve their goals, developed during an intensive 20-hour hackathon.
+\*\*TurtleGoals\*\* is a smart, gamified, and social mobile platform designed to help users achieve their goals, developed during an intensive 20-hour hackathon.
 
 The app helps users overcome procrastination and complete complex tasks using "The Tortoise Approach" — breaking down massive goals into small, manageable daily steps using Generative AI, while leveraging crowdsourcing for community support and guidance.
 
