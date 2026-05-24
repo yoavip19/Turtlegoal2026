@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:434402015877:android:bff8980207efcee24fc7ec",
+        "mobilesdk_app_id": "1:434402015877:android:cf2dc7b4129cfe8e4fc7ec",
         "android_client_info": {
-          "package_name": "com.companyname.turtlegoal"
+          "package_name": "com.companyname.turtlegoals"
         }
       },
       "oauth_client": [],
