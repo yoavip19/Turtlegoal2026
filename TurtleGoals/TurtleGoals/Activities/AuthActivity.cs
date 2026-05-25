@@ -15,7 +15,7 @@ using TurtleGoals.Models;
 
 namespace TurtleGoals.Activities
 {
-    [Activity(Label = "TurtleGoals", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "TurtleGoals", Theme = "@style/AppTheme")]
     public class AuthActivity : AppCompatActivity
     {
         private TabLayout tabLayoutAuth;
