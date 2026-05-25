@@ -44,7 +44,6 @@ namespace TurtleGoals.Activities
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar_community);
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Android.Resource.Drawable.IcActionBack);
             toolbar.NavigationClick += (s, e) => Finish();
 
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.rv_community_feed);
