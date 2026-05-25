@@ -82,7 +82,7 @@ namespace TurtleGoals.Activities
             tvDate.Text = DateTime.Now.ToString("dddd, MMMM d");
 
             // Button handlers
-            btnCreateGoal.Click += (s, e) => ShowCreateGoalDialog();
+            btnCreateGoal.Click += (s, e) => StartActivityForResult(new Intent(this, typeof(CreateGoalActivity)), 1001);
             btnCommunity.Click  += (s, e) => StartActivity(new Intent(this, typeof(CommunityActivity)));
             btnLogout.Click     += (s, e) => Logout();
 
@@ -201,69 +201,15 @@ namespace TurtleGoals.Activities
             llTasksContainer.AddView(itemView);
         }
 
-        // ── Create Goal dialog ────────────────────────────────────────────
+        // ── Activity result (reload data when returning from CreateGoalActivity) ──
 
-        private void ShowCreateGoalDialog()
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            int dp16 = (int)(16 * Resources.DisplayMetrics.Density);
-
-            var container = new LinearLayout(this)
+            base.OnActivityResult(requestCode, resultCode, data);
+            if (requestCode == 1001 && resultCode == Result.Ok)
             {
-                Orientation = Orientation.Vertical
-            };
-            container.SetPadding(dp16, dp16, dp16, 0);
-
-            var etTitle = new EditText(this)
-            {
-                Hint = "Goal title",
-                InputType = Android.Text.InputTypes.TextFlagCapSentences
-            };
-            var etDesc = new EditText(this)
-            {
-                Hint = "Description (optional)",
-                InputType = Android.Text.InputTypes.TextFlagCapSentences | Android.Text.InputTypes.TextFlagMultiLine
-            };
-
-            container.AddView(etTitle);
-            container.AddView(etDesc);
-
-            new AndroidX.AppCompat.App.AlertDialog.Builder(this)
-                .SetTitle("New Goal")
-                .SetView(container)
-                .SetPositiveButton("Create", async (s, e) =>
-                {
-                    string title = etTitle.Text?.Trim() ?? string.Empty;
-                    if (string.IsNullOrEmpty(title))
-                    {
-                        Toast.MakeText(this, "Please enter a goal title", ToastLength.Short).Show();
-                        return;
-                    }
-
-                    btnCreateGoal.Enabled = false;
-                    try
-                    {
-                        var goal = new GoalModel
-                        {
-                            UserId      = _userId,
-                            Title       = title,
-                            Description = etDesc.Text?.Trim() ?? string.Empty,
-                            IsPublic    = true  // All goals are public by default; a privacy toggle can be added later
-                        };
-                        await FirestoreService.Instance.CreateGoal(goal);
-                        await LoadDashboardDataAsync();
-                    }
-                    catch (Exception ex)
-                    {
-                        RunOnUiThread(() =>
-                            Toast.MakeText(this, "Could not create goal: " + ex.Message, ToastLength.Long).Show());
-                    }
-                    finally
-                    {
-                        RunOnUiThread(() => btnCreateGoal.Enabled = true);
-                    }
-                })
-                .SetNegativeButton("Cancel", (s, e) => { })
-                .Show();
+                _ = LoadDashboardDataAsync();
+            }
         }
 
         // ── Logout ────────────────────────────────────────────────────────

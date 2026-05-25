@@ -61,11 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\AuthActivity.cs" />
+    <Compile Include="Activities\CommunityActivity.cs" />
+    <Compile Include="Activities\CreateGoalActivity.cs" />
     <Compile Include="Activities\GoalRoadmapActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
-    <Compile Include="Activities\CommunityActivity.cs" />
-    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Adapters\CommunityFeedAdapter.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\FirestoreService.cs" />
@@ -111,10 +111,12 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Adapters\" />
-    <Folder Include="Resources\drawable\" />
+    <AndroidResource Include="Resources\layout\activity_create_goal.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.6.1.3" />
     <PackageReference Include="Xamarin.Firebase.Auth">
       <Version>122.3.0.1</Version>
@@ -137,6 +139,13 @@
     <AndroidResource Include="Resources\layout\activity_goal_roadmap.xml" />
     <AndroidResource Include="Resources\layout\goal_item.xml" />
     <AndroidResource Include="Resources\layout\task_item.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\goal_card.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\badge_active_background.xml" />
+    <AndroidResource Include="Resources\drawable\badge_background.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
