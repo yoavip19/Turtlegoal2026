@@ -277,7 +277,6 @@ namespace TurtleGoals.Helpers // Adjusted to match your previous namespace
             {
                 var query = await _db.Collection(COMMENTS_COLLECTION)
                                      .WhereEqualTo("taskId", taskId)
-                                     .OrderBy("createdAt")
                                      .Get()
                                      .AsAsync<QuerySnapshot>();
 
@@ -285,6 +284,7 @@ namespace TurtleGoals.Helpers // Adjusted to match your previous namespace
                 foreach (var doc in query.Documents)
                     comments.Add(CommentModel.FromDocument(doc.Id, doc));
 
+                comments.Sort((a, b) => a.CreatedAt.CompareTo(b.CreatedAt));
                 return comments;
             }
             catch (Exception ex)
