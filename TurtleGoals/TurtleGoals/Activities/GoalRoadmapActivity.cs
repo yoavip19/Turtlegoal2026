@@ -250,7 +250,6 @@ namespace TurtleGoals.Activities
                 if (success)
                 {
                     _etTipText.Text = "";
-                    _selectedTaskIdForTip = null;
                     _etTipText.Hint = "Write a tip…";
 
                     // Reload tips and refresh
