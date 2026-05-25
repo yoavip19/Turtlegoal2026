@@ -6,6 +6,7 @@ using Android.OS;
 using Android.Text;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AndroidX.AppCompat.Widget;
 using AndroidX.RecyclerView.Widget;
 using Firebase.Auth;
 using TurtleGoals.Adapters;
@@ -14,7 +15,7 @@ using TurtleGoals.Models;
 
 namespace TurtleGoals.Activities
 {
-    [Activity(Label = "Community", Theme = "@style/AppTheme")]
+    [Activity(Label = "Community", Theme = "@style/AppTheme.NoActionBar")]
     public class CommunityActivity : AppCompatActivity
     {
         private RecyclerView _recyclerView;
@@ -38,6 +39,12 @@ namespace TurtleGoals.Activities
             }
 
             SetContentView(Resource.Layout.community_layout);
+
+            // Set up toolbar with back navigation
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar_community);
+            SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            toolbar.NavigationClick += (s, e) => Finish();
 
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.rv_community_feed);
             _etSearch     = FindViewById<EditText>(Resource.Id.et_search);

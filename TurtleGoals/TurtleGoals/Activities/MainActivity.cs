@@ -30,6 +30,7 @@ namespace TurtleGoals.Activities
         private TextView tvNoTasks;
         private TextView tvTasksLoading;
         private MaterialButton btnCreateGoal;
+        private MaterialButton btnCommunity;
         private MaterialButton btnLogout;
         private RecyclerView rvGoalsBanner;
         private TextView tvNoGoals;
@@ -67,6 +68,7 @@ namespace TurtleGoals.Activities
             tvNoTasks         = FindViewById<TextView>(Resource.Id.tvNoTasks);
             tvTasksLoading    = FindViewById<TextView>(Resource.Id.tvTasksLoading);
             btnCreateGoal     = FindViewById<MaterialButton>(Resource.Id.btnCreateGoal);
+            btnCommunity      = FindViewById<MaterialButton>(Resource.Id.btnCommunity);
             btnLogout         = FindViewById<MaterialButton>(Resource.Id.btnLogout);
             rvGoalsBanner     = FindViewById<RecyclerView>(Resource.Id.rvGoalsBanner);
             tvNoGoals         = FindViewById<TextView>(Resource.Id.tvNoGoals);
@@ -81,13 +83,8 @@ namespace TurtleGoals.Activities
 
             // Button handlers
             btnCreateGoal.Click += (s, e) => ShowCreateGoalDialog();
+            btnCommunity.Click  += (s, e) => StartActivity(new Intent(this, typeof(CommunityActivity)));
             btnLogout.Click     += (s, e) => Logout();
-
-            // TODO: CommunityActivity is planned (community_layout.xml is ready) but not yet implemented.
-            // Once CommunityActivity is created, un-comment both the button in activity_dashboard.xml
-            // and the lines below:
-            // var btnCommunity = FindViewById<MaterialButton>(Resource.Id.btnCommunity);
-            // btnCommunity.Click += (s, e) => StartActivity(new Intent(this, typeof(CommunityActivity)));
 
             // Load data from Firebase
             _ = LoadDashboardDataAsync();
@@ -283,15 +280,6 @@ namespace TurtleGoals.Activities
             intent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
             StartActivity(intent);
             Finish();
-            // Navigate to the Community Feed after a short splash delay
-            var communityIntent = new Intent(this, typeof(CommunityActivity));
-            communityIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
-            StartActivity(communityIntent);
-            Finish();
-
-            // TODO: Replace with Dashboard navigation once DashboardActivity is implemented.
-            // var dashboardIntent = new Intent(this, typeof(DashboardActivity));
-            // StartActivity(dashboardIntent);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions,
