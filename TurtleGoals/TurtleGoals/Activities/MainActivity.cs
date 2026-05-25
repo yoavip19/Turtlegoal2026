@@ -206,7 +206,7 @@ namespace TurtleGoals.Activities
             container.AddView(etTitle);
             container.AddView(etDesc);
 
-            new AlertDialog.Builder(this)
+            new AndroidX.AppCompat.App.AlertDialog.Builder(this)
                 .SetTitle("New Goal")
                 .SetView(container)
                 .SetPositiveButton("Create", async (s, e) =>

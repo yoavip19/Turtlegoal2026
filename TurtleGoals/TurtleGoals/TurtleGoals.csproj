@@ -125,6 +125,10 @@
     <AndroidResource Include="Resources\layout\auth_layout.xml" />
     <AndroidResource Include="Resources\layout\community_layout.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_dashboard.xml" />
+    <AndroidResource Include="Resources\layout\task_item.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.
