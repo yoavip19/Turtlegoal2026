@@ -290,10 +290,6 @@
             android:textSize="16sp"
             app:cornerRadius="12dp" />
 
-        <!--
-        TODO: CommunityActivity is planned but not yet implemented.
-        Once CommunityActivity is created, un-comment this button and wire it up in MainActivity.cs.
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCommunity"
             android:layout_width="match_parent"
@@ -304,7 +300,6 @@
             android:textAllCaps="false"
             android:textSize="16sp"
             app:cornerRadius="12dp" />
-        -->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogout"

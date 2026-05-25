@@ -3,7 +3,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#FFF8F6">
 	<com.google.android.material.appbar.AppBarLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFF8F6" app:elevation="0dp">
-		<androidx.appcompat.widget.Toolbar android:layout_width="match_parent" android:layout_height="?attr/actionBarSize">
+		<androidx.appcompat.widget.Toolbar android:id="@+id/toolbar_community" android:layout_width="match_parent" android:layout_height="?attr/actionBarSize">
 			<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TurtleGoal" android:textSize="24sp" android:fontFamily="sans-serif-black" android:textColor="#6D574F" />
 		</androidx.appcompat.widget.Toolbar>
 		<com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="16dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="#F2E5E2" app:cardElevation="0dp">
