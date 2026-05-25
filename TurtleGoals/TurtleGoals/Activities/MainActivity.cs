@@ -9,6 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AndroidX.RecyclerView.Widget;
 using Firebase.Auth;
 using Google.Android.Material.Button;
 using TurtleGoals.Helpers;
@@ -30,6 +31,9 @@ namespace TurtleGoals.Activities
         private TextView tvTasksLoading;
         private MaterialButton btnCreateGoal;
         private MaterialButton btnLogout;
+        private RecyclerView rvGoalsBanner;
+        private TextView tvNoGoals;
+        private GoalBannerAdapter _goalBannerAdapter;
 
         // ── State ─────────────────────────────────────────────────────────
         private string _userId;
@@ -64,6 +68,13 @@ namespace TurtleGoals.Activities
             tvTasksLoading    = FindViewById<TextView>(Resource.Id.tvTasksLoading);
             btnCreateGoal     = FindViewById<MaterialButton>(Resource.Id.btnCreateGoal);
             btnLogout         = FindViewById<MaterialButton>(Resource.Id.btnLogout);
+            rvGoalsBanner     = FindViewById<RecyclerView>(Resource.Id.rvGoalsBanner);
+            tvNoGoals         = FindViewById<TextView>(Resource.Id.tvNoGoals);
+
+            // Set up the horizontal goals RecyclerView
+            _goalBannerAdapter = new GoalBannerAdapter(this, _goals);
+            rvGoalsBanner.SetLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.Horizontal, false));
+            rvGoalsBanner.SetAdapter(_goalBannerAdapter);
 
             // Set today's date
             tvDate.Text = DateTime.Now.ToString("dddd, MMMM d");
@@ -120,6 +131,19 @@ namespace TurtleGoals.Activities
 
         private void UpdateDashboardUI()
         {
+            // Goals banner
+            _goalBannerAdapter.UpdateGoals(_goals);
+            if (_goals.Count > 0)
+            {
+                rvGoalsBanner.Visibility = ViewStates.Visible;
+                tvNoGoals.Visibility     = ViewStates.Gone;
+            }
+            else
+            {
+                rvGoalsBanner.Visibility = ViewStates.Gone;
+                tvNoGoals.Visibility     = ViewStates.Visible;
+            }
+
             // Progress stats
             int totalTasks     = _goalTasks.Values.Sum(t => t.Count);
             int completedCount = _goalTasks.Values.Sum(t => t.Count(task => task.IsDone));

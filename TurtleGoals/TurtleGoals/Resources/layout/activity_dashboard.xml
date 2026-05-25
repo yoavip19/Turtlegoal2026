@@ -13,6 +13,42 @@
         android:padding="16dp"
         android:paddingBottom="32dp">
 
+        <!-- ── Goals Banner ────────────────────────────────────────────── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:text="My Goals"
+            android:textColor="#6D574F"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGoalsBanner"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:layout_marginStart="-8dp"
+            android:layout_marginEnd="-8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:contentDescription="Horizontal list of your goals"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvNoGoals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="No goals yet — create one below!"
+            android:textColor="#9E8880"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
         <!-- ── Header ──────────────────────────────────────────────────── -->
         <LinearLayout
             android:layout_width="match_parent"
