@@ -77,9 +77,7 @@ namespace TurtleGoals.Adapters
                 vh.TvStatusBadge.SetBackgroundResource(Resource.Drawable.badge_active_background);
             }
 
-            // Inspect button — RoadmapActivity is not yet created; navigation is commented out.
-            vh.BtnInspect.Click -= vh.OnInspectClick; // prevent duplicate handlers
-            vh.BtnInspect.Click += vh.OnInspectClick;
+            // Update GoalId so the click handler (wired once in the constructor) uses the right ID
             vh.GoalId = goal.GoalId;
         }
 
@@ -138,6 +136,9 @@ namespace TurtleGoals.Adapters
                 LlDueDate     = view.FindViewById<LinearLayout>(Resource.Id.ll_due_date);
                 TvStatusBadge = view.FindViewById<TextView>(Resource.Id.tv_status_badge);
                 BtnInspect    = view.FindViewById<Android.Widget.Button>(Resource.Id.btn_inspect);
+
+                // Wire the Inspect click once — GoalId is updated in OnBindViewHolder
+                BtnInspect.Click += OnInspectClick;
             }
 
             public void OnInspectClick(object sender, EventArgs e)

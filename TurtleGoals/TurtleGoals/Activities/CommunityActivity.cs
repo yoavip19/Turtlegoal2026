@@ -20,6 +20,8 @@ namespace TurtleGoals.Activities
         private RecyclerView _recyclerView;
         private EditText _etSearch;
         private CommunityFeedAdapter _adapter;
+        private Android.OS.Handler _searchHandler;
+        private Java.Lang.Runnable _searchRunnable;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -45,8 +47,14 @@ namespace TurtleGoals.Activities
             _recyclerView.SetLayoutManager(new LinearLayoutManager(this));
             _recyclerView.SetAdapter(_adapter);
 
-            // Live search filter
-            _etSearch.TextChanged += (s, e) => _adapter.Filter(_etSearch.Text);
+            // Debounced search — only filters 300 ms after the user stops typing
+            _searchHandler = new Android.OS.Handler(Android.OS.Looper.MainLooper);
+            _etSearch.TextChanged += (s, e) =>
+            {
+                _searchHandler.RemoveCallbacks(_searchRunnable);
+                _searchRunnable = new Java.Lang.Runnable(() => _adapter.Filter(_etSearch.Text));
+                _searchHandler.PostDelayed(_searchRunnable, 300);
+            };
 
             // Load public goals from Firestore
             LoadPublicGoals();
@@ -66,3 +74,4 @@ namespace TurtleGoals.Activities
         }
     }
 }
+
