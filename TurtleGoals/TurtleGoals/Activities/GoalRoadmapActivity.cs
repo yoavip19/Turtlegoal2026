@@ -22,7 +22,7 @@ namespace TurtleGoals.Activities
     ///   1. User (goal owner): can complete tasks and watch tips from the community.
     ///   2. Tipper (community viewer): can watch tasks and give tips on individual tasks.
     /// </summary>
-    [Activity(Label = "Goal Roadmap", Theme = "@style/AppTheme")]
+    [Activity(Label = "Goal Roadmap", Theme = "@style/AppTheme.NoActionBar")]
     public class GoalRoadmapActivity : AppCompatActivity
     {
         private string _goalId;
