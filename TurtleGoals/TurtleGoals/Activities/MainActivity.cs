@@ -27,10 +27,15 @@ namespace TurtleGoals.Activities
 
             SetContentView(Resource.Layout.activity_main);
 
-            // TODO: CommunityActivity is planned (community_layout.xml is ready) but not yet implemented.
-            // Once CommunityActivity is created, wire up the navigation button here:
-            // var communityIntent = new Intent(this, typeof(CommunityActivity));
-            // StartActivity(communityIntent);
+            // Navigate to the Community Feed after a short splash delay
+            var communityIntent = new Intent(this, typeof(CommunityActivity));
+            communityIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+            StartActivity(communityIntent);
+            Finish();
+
+            // TODO: Replace with Dashboard navigation once DashboardActivity is implemented.
+            // var dashboardIntent = new Intent(this, typeof(DashboardActivity));
+            // StartActivity(dashboardIntent);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions,
