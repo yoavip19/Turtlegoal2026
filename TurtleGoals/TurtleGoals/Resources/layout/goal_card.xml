@@ -44,8 +44,7 @@
                 android:paddingVertical="4dp"
                 android:textSize="11sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/badge_background" />
+                android:textColor="#FFFFFF"/>
 
         </LinearLayout>
 
