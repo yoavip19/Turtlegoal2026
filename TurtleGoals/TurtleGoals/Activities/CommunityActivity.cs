@@ -41,7 +41,7 @@ namespace TurtleGoals.Activities
             SetContentView(Resource.Layout.community_layout);
 
             // Set up toolbar with back navigation
-            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar_community);
+            var toolbar = FindViewById<AndroidX.AppCompat.Widget.Toolbar>(Resource.Id.toolbar_community);
             SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             toolbar.NavigationClick += (s, e) => Finish();

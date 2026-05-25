@@ -24,7 +24,7 @@ namespace TurtleGoals.Activities
     public class CreateGoalActivity : AppCompatActivity
     {
         // ===== API CONFIG =====
-        private const string ApiKey = "AIzaSyCkCygmmATmwgQj6hFPsrqu2W17pksT2jc";
+        private const string ApiKey = "AIzaSyDwSgTgZMeAp5qoIXlVssZrni0H9k8s3fk";
         private const string ApiUrl =
             "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=";
 
