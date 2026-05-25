@@ -4,6 +4,7 @@ using System.Linq;
 using Android.Views;
 using Android.Widget;
 using AndroidX.RecyclerView.Widget;
+using TurtleGoals.Activities;
 using TurtleGoals.Models;
 
 namespace TurtleGoals.Adapters
@@ -143,14 +144,9 @@ namespace TurtleGoals.Adapters
 
             public void OnInspectClick(object sender, EventArgs e)
             {
-                // TODO: Navigate to RoadmapActivity when it is created.
-                // var intent = new Android.Content.Intent(ItemView.Context, typeof(RoadmapActivity));
-                // intent.PutExtra("goalId", GoalId);
-                // ItemView.Context.StartActivity(intent);
-                Android.Widget.Toast.MakeText(
-                    ItemView.Context,
-                    "Roadmap coming soon!",
-                    Android.Widget.ToastLength.Short).Show();
+                var intent = new Android.Content.Intent(ItemView.Context, typeof(GoalRoadmapActivity));
+                intent.PutExtra("goalId", GoalId);
+                ItemView.Context.StartActivity(intent);
             }
         }
     }
