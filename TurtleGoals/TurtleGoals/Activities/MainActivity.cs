@@ -283,6 +283,15 @@ namespace TurtleGoals.Activities
             intent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
             StartActivity(intent);
             Finish();
+            // Navigate to the Community Feed after a short splash delay
+            var communityIntent = new Intent(this, typeof(CommunityActivity));
+            communityIntent.AddFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+            StartActivity(communityIntent);
+            Finish();
+
+            // TODO: Replace with Dashboard navigation once DashboardActivity is implemented.
+            // var dashboardIntent = new Intent(this, typeof(DashboardActivity));
+            // StartActivity(dashboardIntent);
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions,

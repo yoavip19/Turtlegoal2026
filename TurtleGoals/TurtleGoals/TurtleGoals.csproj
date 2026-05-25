@@ -64,6 +64,9 @@
     <Compile Include="Activities\GoalRoadmapActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
+    <Compile Include="Activities\CommunityActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Adapters\CommunityFeedAdapter.cs" />
     <Compile Include="Helpers\DateHelper.cs" />
     <Compile Include="Helpers\FirestoreService.cs" />
     <Compile Include="Helpers\FirestoreTestListener.cs" />
