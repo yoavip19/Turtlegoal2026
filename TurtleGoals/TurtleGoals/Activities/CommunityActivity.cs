@@ -15,7 +15,7 @@ using TurtleGoals.Models;
 
 namespace TurtleGoals.Activities
 {
-    [Activity(Label = "Community", Theme = "@style/AppTheme")]
+    [Activity(Label = "Community", Theme = "@style/AppTheme.NoActionBar")]
     public class CommunityActivity : AppCompatActivity
     {
         private RecyclerView _recyclerView;
