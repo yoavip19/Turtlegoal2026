@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\AuthActivity.cs" />
+    <Compile Include="Activities\CreateGoalActivity.cs" />
     <Compile Include="Activities\GoalRoadmapActivity.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\SplashActivity.cs" />
@@ -115,6 +116,7 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.6.1.3" />
     <PackageReference Include="Xamarin.Firebase.Auth">
       <Version>122.3.0.1</Version>
@@ -133,6 +135,7 @@
     <AndroidResource Include="Resources\layout\community_layout.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_create_goal.xml" />
     <AndroidResource Include="Resources\layout\activity_dashboard.xml" />
     <AndroidResource Include="Resources\layout\activity_goal_roadmap.xml" />
     <AndroidResource Include="Resources\layout\goal_item.xml" />
